@@ -1,0 +1,48 @@
+table 'Select Metric'
+	lineageTag: c62b298f-787a-487b-a16d-92c99dcf739c
+
+	column 'Select Metric'
+		lineageTag: 31e84bea-aa3d-4013-a05d-2a4c75604507
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Kolejność Select Metric'
+
+		relatedColumnDetails
+			groupByColumn: 'Pola: Select Metric'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pola: Select Metric'
+		isHidden
+		lineageTag: 325c763c-5d81-4cf1-83d8-640ea9054986
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Kolejność Select Metric'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolejność Select Metric'
+		isHidden
+		formatString: 0
+		lineageTag: 5dfa1b0a-8d68-40f8-baab-b2b74a967488
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Select Metric' = calculated
+		mode: import
+		source =
+				{
+				    ("Attrition Rate", NAMEOF('_Measures'[Attrition Rate]), 0),
+				    ("Cost of Attrition", NAMEOF('_Measures'[Cost of Attrition]), 1)
+				}
+
+	annotation PBI_Id = 7a45f2713660456086bec461d62d4e83
+

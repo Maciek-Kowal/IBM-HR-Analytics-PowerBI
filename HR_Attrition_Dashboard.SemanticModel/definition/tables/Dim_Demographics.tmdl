@@ -1,0 +1,77 @@
+table Dim_Demographics
+	lineageTag: fceda8c3-0ff7-424d-b0da-4cb7db9e36ee
+
+	column EmployeeNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ec9542c-c673-41d0-a6e0-6e0945809a67
+		summarizeBy: none
+		sourceColumn: EmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 01df2104-94d6-452a-a4bd-d90e28333555
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 27ba37fc-b689-4363-88cc-912854f2a6bf
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: 652fa10d-265b-4492-a8f6-00ee757346fe
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Education
+		dataType: int64
+		formatString: 0
+		lineageTag: 235ce935-5b18-4bd2-9b97-ddddeb29e59b
+		summarizeBy: none
+		sourceColumn: Education
+
+		annotation SummarizationSetBy = Automatic
+
+	column EducationField
+		dataType: string
+		lineageTag: e4882177-3b46-4ced-9d5b-c2524d1f35d7
+		summarizeBy: none
+		sourceColumn: EducationField
+
+		annotation SummarizationSetBy = Automatic
+
+	column DistanceFromHome
+		dataType: int64
+		formatString: 0
+		lineageTag: d0ca2e99-30a4-47f9-a64e-8987b9ddbbc8
+		summarizeBy: none
+		sourceColumn: DistanceFromHome
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Demographics = m
+		mode: import
+		source =
+				let
+				    Źródło = RAW,
+				    #"Usunięto inne kolumny" = Table.SelectColumns(Źródło,{"Age", "EmployeeNumber", "Gender", "MaritalStatus", "EducationField", "Education", "DistanceFromHome"}),
+				    #"Zmieniono kolejność kolumn" = Table.ReorderColumns(#"Usunięto inne kolumny",{"EmployeeNumber", "Age", "Gender", "MaritalStatus", "Education", "EducationField", "DistanceFromHome"})
+				in
+				    #"Zmieniono kolejność kolumn"
+
+	annotation PBI_NavigationStepName = Nawigacja
+
+	annotation PBI_ResultType = Table
+

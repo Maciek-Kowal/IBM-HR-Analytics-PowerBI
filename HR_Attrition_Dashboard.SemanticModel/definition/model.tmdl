@@ -1,0 +1,23 @@
+model Model
+	culture: pl-PL
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["RAW","Dim_Demographics","Dim_Role","Fact_Attrition","_Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Dim_Demographics
+ref table Dim_Role
+ref table Fact_Attrition
+ref table _Measures
+ref table 'Select Metric'
+
+ref cultureInfo pl-PL
+

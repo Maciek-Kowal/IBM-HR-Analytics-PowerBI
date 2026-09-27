@@ -1,0 +1,33 @@
+table _Measures
+	lineageTag: c10ba971-8425-4df7-a4bf-8d835a58bec0
+
+	measure 'Attrition Rate' =
+			DIVIDE(
+			    CALCULATE(
+			        DISTINCTCOUNT('Fact_Attrition'[EmployeeNumber]),
+			         'Fact_Attrition'[Attrition] = "Yes"),
+			          DISTINCTCOUNT('Fact_Attrition'[EmployeeNumber])
+			          ,0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 85d29cac-316c-4fbe-8338-465170fb51af
+
+	measure 'Cost of Attrition' = SUMX ( FILTER('Fact_Attrition', 'Fact_Attrition'[Attrition] = "Yes"), 'Fact_Attrition'[MonthlyIncome] * 12 * 0.5)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 58afee2a-2351-4aa3-90f8-085d3eed4bd6
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Źródło = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Kolumna 1" = _t]),
+				    #"Zmieniono typ" = Table.TransformColumnTypes(Źródło,{{"Kolumna 1", type text}}),
+				    #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ",{"Kolumna 1"})
+				in
+				    #"Usunięto kolumny"
+
+	annotation PBI_ResultType = Table
+

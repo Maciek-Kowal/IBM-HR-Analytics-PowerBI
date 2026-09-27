@@ -1,0 +1,8 @@
+relationship 215ce053-58c9-f385-6e56-314988ac289f
+	fromColumn: Fact_Attrition.EmployeeNumber
+	toColumn: Dim_Role.EmployeeNumber
+
+relationship e4b4fe07-56e0-7f11-18c7-7412fc1cce69
+	fromColumn: Fact_Attrition.EmployeeNumber
+	toColumn: Dim_Demographics.EmployeeNumber
+

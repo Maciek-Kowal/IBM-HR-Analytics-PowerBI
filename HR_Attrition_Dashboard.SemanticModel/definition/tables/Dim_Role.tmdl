@@ -1,0 +1,50 @@
+table Dim_Role
+	lineageTag: 0c4ade7d-f64f-4dd7-bbd6-e949c3c6e40f
+
+	column Department
+		dataType: string
+		lineageTag: f51c1006-4cf6-4680-847e-656049e997ce
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: b5780054-8ca5-4bb2-861b-b8443d61a264
+		summarizeBy: none
+		sourceColumn: EmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobLevel
+		dataType: int64
+		formatString: 0
+		lineageTag: e5348758-9b23-4023-a6e7-231c33d8d702
+		summarizeBy: none
+		sourceColumn: JobLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobRole
+		dataType: string
+		lineageTag: 7a894cab-8e23-4b99-9297-40e03a5990ec
+		summarizeBy: none
+		sourceColumn: JobRole
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Role = m
+		mode: import
+		source =
+				let
+				    Źródło = RAW,
+				    #"Usunięto inne kolumny" = Table.SelectColumns(Źródło,{"Department", "EmployeeNumber", "JobLevel", "JobRole"})
+				in
+				    #"Usunięto inne kolumny"
+
+	annotation PBI_NavigationStepName = Nawigacja
+
+	annotation PBI_ResultType = Table
+

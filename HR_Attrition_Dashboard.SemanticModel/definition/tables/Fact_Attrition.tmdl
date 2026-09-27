@@ -1,0 +1,116 @@
+table Fact_Attrition
+	lineageTag: 1a6e15c6-cc2f-4841-9591-189563337834
+
+	column Attrition
+		dataType: string
+		lineageTag: 207500b3-79ef-4611-aa49-8086c27f4a6c
+		summarizeBy: none
+		sourceColumn: Attrition
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: a9cfbcdc-ede8-4f21-93cf-bc1a1b6238f6
+		summarizeBy: none
+		sourceColumn: EmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnvironmentSatisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: 738e2161-3235-4a11-a0d3-41b4d83717a5
+		summarizeBy: none
+		sourceColumn: EnvironmentSatisfaction
+
+		annotation SummarizationSetBy = User
+
+	column JobSatisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: 1bf5265a-bbd3-4b89-bd77-358a3ef7b409
+		summarizeBy: none
+		sourceColumn: JobSatisfaction
+
+		annotation SummarizationSetBy = User
+
+	column MonthlyIncome
+		dataType: int64
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 352fec6f-f318-45a1-93fb-5d840e42d2f3
+		summarizeBy: none
+		sourceColumn: MonthlyIncome
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PercentSalaryHike
+		dataType: int64
+		formatString: 0
+		lineageTag: c6933531-95a2-442d-b2d2-c348f1f4a256
+		summarizeBy: none
+		sourceColumn: PercentSalaryHike
+
+		annotation SummarizationSetBy = User
+
+	column PerformanceRating
+		dataType: int64
+		formatString: 0
+		lineageTag: da33b2b7-aa45-4bd5-b3d0-23b09070e23b
+		summarizeBy: none
+		sourceColumn: PerformanceRating
+
+		annotation SummarizationSetBy = User
+
+	column TrainingTimesLastYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 2640e3de-3cf8-46b7-ba8e-b3187d07ff4a
+		summarizeBy: sum
+		sourceColumn: TrainingTimesLastYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkLifeBalance
+		dataType: int64
+		formatString: 0
+		lineageTag: 52dad672-bbe1-43e4-803e-230f9c20004d
+		summarizeBy: none
+		sourceColumn: WorkLifeBalance
+
+		annotation SummarizationSetBy = User
+
+	column YearsAtCompany
+		dataType: int64
+		formatString: 0
+		lineageTag: 335d12c7-302f-424e-8c2e-1ba6edd8ad1a
+		summarizeBy: none
+		sourceColumn: YearsAtCompany
+
+		annotation SummarizationSetBy = User
+
+	column YearsInCurrentRole
+		dataType: int64
+		formatString: 0
+		lineageTag: 174314ab-93a6-4696-82ed-26a2b982e958
+		summarizeBy: none
+		sourceColumn: YearsInCurrentRole
+
+		annotation SummarizationSetBy = User
+
+	partition Fact_Attrition = m
+		mode: import
+		source =
+				let
+				    Źródło = RAW,
+				    #"Usunięto inne kolumny" = Table.SelectColumns(Źródło,{"Attrition", "EmployeeNumber", "EnvironmentSatisfaction", "JobSatisfaction", "MonthlyIncome", "PercentSalaryHike", "PerformanceRating", "TrainingTimesLastYear", "WorkLifeBalance", "YearsAtCompany", "YearsInCurrentRole"})
+				in
+				    #"Usunięto inne kolumny"
+
+	annotation PBI_NavigationStepName = Nawigacja
+
+	annotation PBI_ResultType = Table
+
