@@ -75,7 +75,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''_Measures''[Cost of Attrition]'"
+                                "Value": "'''_Measures''[Attrition Rate]'"
                               }
                             }
                           ]
@@ -103,7 +103,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''_Measures''[Cost of Attrition]'"
+                                      "Value": "'''_Measures''[Attrition Rate]'"
                                     }
                                   }
                                 ]
@@ -127,7 +127,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Cost of Attrition"
+                            "0": "Attrition Rate"
                           }
                         ]
                       }
@@ -188,5 +188,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "80a8c6b38005201e80cb"
+  "parentGroupName": "80a8c6b38005201e80cb",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "889cc797b01c9c60411a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Select Metric"
+              }
+            },
+            "Property": "Select Metric"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
 }

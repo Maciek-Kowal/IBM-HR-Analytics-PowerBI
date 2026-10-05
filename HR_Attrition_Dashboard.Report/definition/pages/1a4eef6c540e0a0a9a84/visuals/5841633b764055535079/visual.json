@@ -42,12 +42,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Cost of Attrition"
+                  "Property": "Attrition Rate"
                 }
               },
-              "queryRef": "_Measures.Cost of Attrition",
-              "nativeQueryRef": "Cost of Attrition",
-              "displayName": "Cost of Attrition"
+              "queryRef": "_Measures.Attrition Rate",
+              "nativeQueryRef": "Attrition Rate",
+              "displayName": "Attrition Rate"
             }
           ],
           "fieldParameters": [
@@ -78,7 +78,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Cost of Attrition"
+                "Property": "Attrition Rate"
               }
             },
             "direction": "Descending"
@@ -375,20 +375,6 @@
           }
         },
         "type": "Categorical"
-      },
-      {
-        "name": "7867aa8850de46817841",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Cost of Attrition"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

@@ -4,13 +4,7 @@
   "name": "32b467f6b00bb1b37ba3",
   "options": {
     "targetVisualNames": [
-      "64bd3c246104b640096b",
-      "0b18466da6b72e6c7203",
-      "873e05a0163ed779abc4",
-      "bd80f5f6a1d9ddc7b6d9",
-      "d18b94b96b0cccb30d58",
-      "5931b40ac8992b2a8085",
-      "e419344f299d43c661b1"
+      "64bd3c246104b640096b"
     ]
   },
   "explorationState": {
@@ -19,20 +13,20 @@
     "sections": {
       "1a4eef6c540e0a0a9a84": {
         "visualContainers": {
-          "a07ede3063e20ed5378b": {
+          "0b18466da6b72e6c7203": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "695cf027289de8a2aa62",
-                  "type": "Advanced",
+                  "name": "015bf00ad6780b0039ae",
+                  "type": "Categorical",
                   "expression": {
-                    "Measure": {
+                    "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "_Measures"
+                          "Entity": "Dim_Role"
                         }
                       },
-                      "Property": "Attrition Rate"
+                      "Property": "Department"
                     }
                   },
                   "howCreated": 0
@@ -40,30 +34,57 @@
               ]
             },
             "singleVisual": {
-              "visualType": "cardVisual",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Measure": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "_Measures"
+                          "Entity": "Dim_Role"
                         }
                       },
-                      "Property": "Attrition Rate"
+                      "Property": "Department"
                     }
                   }
-                }
-              ]
+                ]
+              }
+            }
+          },
+          "107d0b620974e0551014": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "2f25f014679e2a5463dc": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
             }
           },
           "3eb7d2c93024e60b5608": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "c83a75130343d2eca50b",
+                  "name": "2ac657ec73e9c9c7aa2b",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -78,7 +99,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "5b71845b577c84530778",
+                  "name": "1031ee62337670aba505",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -88,21 +109,6 @@
                         }
                       },
                       "Property": "Attrition Rate"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "439dbe4784000bddca8a",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Cost of Attrition"
                     }
                   },
                   "howCreated": 0
@@ -142,28 +148,6 @@
                 ]
               },
               "projections": {
-                "Y": [
-                  {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Attrition Rate"
-                    }
-                  },
-                  {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Cost of Attrition"
-                    }
-                  }
-                ],
                 "Category": [
                   {
                     "Column": {
@@ -173,6 +157,18 @@
                         }
                       },
                       "Property": "Department"
+                    }
+                  }
+                ],
+                "Y": [
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Attrition Rate"
                     }
                   }
                 ]
@@ -191,17 +187,23 @@
                       }
                     },
                     "index": 0,
-                    "length": 2
+                    "length": 1
                   }
                 ]
               }
+            }
+          },
+          "3ffa306428880bd027a1": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
             }
           },
           "4a3585903731a6ad4d6d": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "aa51c9b99065c6d3c156",
+                  "name": "03061a7d8e657ebedc84",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -237,11 +239,229 @@
               ]
             }
           },
+          "53723157b63ad640008e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "63ad640b960e2e0700a0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Fact_Attrition"
+                            }
+                          },
+                          "Property": "EmployeeNumber"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Fact_Attrition"
+                            }
+                          },
+                          "Property": "EmployeeNumber"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "5841633b764055535079": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b02c0bff001ed4114ae8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Role"
+                        }
+                      },
+                      "Property": "JobRole"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f29c5b06d2c253499299",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Attrition Rate"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Attrition Rate"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Role"
+                        }
+                      },
+                      "Property": "JobRole"
+                    }
+                  }
+                ]
+              },
+              "projections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Role"
+                        }
+                      },
+                      "Property": "JobRole"
+                    }
+                  }
+                ],
+                "Y": [
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Attrition Rate"
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "Y": [
+                  {
+                    "expr": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Select Metric"
+                          }
+                        },
+                        "Property": "Select Metric"
+                      }
+                    },
+                    "index": 0,
+                    "length": 1
+                  }
+                ]
+              }
+            }
+          },
+          "5931b40ac8992b2a8085": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6e411c48d7d870e90b70",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Demographics"
+                        }
+                      },
+                      "Property": "MaritalStatus"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Demographics"
+                        }
+                      },
+                      "Property": "MaritalStatus"
+                    }
+                  }
+                ]
+              }
+            }
+          },
           "64bd3c246104b640096b": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "2927252c985191684539",
+                  "name": "3690515fe245d72ea062",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -261,6 +481,53 @@
               "visualType": "slicer",
               "objects": {
                 "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "s",
+                                "Entity": "Select Metric",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "s"
+                                            }
+                                          },
+                                          "Property": "Pola: Select Metric"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'''_Measures''[Attrition Rate]'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
                   "data": [
                     {
                       "properties": {
@@ -268,6 +535,19 @@
                           "expr": {
                             "Literal": {
                               "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
                             }
                           }
                         }
@@ -289,26 +569,110 @@
                     }
                   }
                 ]
-              }
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Select Metric"
+                              }
+                            },
+                            "Property": "Pola: Select Metric"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'''_Measures''[Attrition Rate]'"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "Attrition Rate"
+                }
+              ]
             }
           },
-          "bdd5a2f5e425150468e6": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "7eaf829808e5b06b0986": {
-            "singleVisual": {
-              "visualType": "textbox",
-              "objects": {}
-            }
-          },
-          "53723157b63ad640008e": {
+          "79132f3095020ab0e601": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "5c24c34fb8001da63a29",
+                  "name": "675f65ca67ce0660e60a",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "f",
+                        "Entity": "Fact_Attrition",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "f"
+                                    }
+                                  },
+                                  "Property": "Attrition"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Yes'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fact_Attrition"
+                        }
+                      },
+                      "Property": "Attrition"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "48d856f3a1200ceb56a0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fact_Attrition"
+                        }
+                      },
+                      "Property": "YearsAtCompany"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "988d032c7c4c230a793a",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -330,7 +694,7 @@
               ]
             },
             "singleVisual": {
-              "visualType": "cardVisual",
+              "visualType": "clusteredColumnChart",
               "objects": {},
               "orderBy": [
                 {
@@ -348,6 +712,121 @@
                         }
                       },
                       "Function": 5
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fact_Attrition"
+                        }
+                      },
+                      "Property": "YearsAtCompany"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7eaf829808e5b06b0986": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "873e05a0163ed779abc4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "061540823bada03d6536",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Role"
+                        }
+                      },
+                      "Property": "JobRole"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Role"
+                        }
+                      },
+                      "Property": "JobRole"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "a07ede3063e20ed5378b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6d5d03fcc37c21010c40",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Attrition Rate"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Attrition Rate"
                     }
                   }
                 }
@@ -412,7 +891,7 @@
                   "howCreated": 1
                 },
                 {
-                  "name": "a327b9e55b916ced7116",
+                  "name": "d3938c17614a6b63b69a",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -458,50 +937,20 @@
               ]
             }
           },
-          "5841633b764055535079": {
+          "bd80f5f6a1d9ddc7b6d9": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "c692dcb9520de8b1de69",
+                  "name": "6bc8199bd044041dec90",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Dim_Role"
+                          "Entity": "Dim_Demographics"
                         }
                       },
-                      "Property": "JobRole"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "f05724aac6bd07ea68cd",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Attrition Rate"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "6c870f69a47b33787e50",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Cost of Attrition"
+                      "Property": "Gender"
                     }
                   },
                   "howCreated": 0
@@ -509,252 +958,66 @@
               ]
             },
             "singleVisual": {
-              "visualType": "clusteredBarChart",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Attrition Rate"
-                    }
-                  }
-                }
-              ],
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Role"
-                        }
-                      },
-                      "Property": "JobRole"
-                    }
-                  }
-                ]
-              },
-              "projections": {
-                "Y": [
-                  {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Attrition Rate"
-                    }
-                  },
-                  {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Cost of Attrition"
-                    }
-                  }
-                ],
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Role"
-                        }
-                      },
-                      "Property": "JobRole"
-                    }
-                  }
-                ]
-              },
-              "parameters": {
-                "Y": [
-                  {
-                    "expr": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Select Metric"
-                          }
-                        },
-                        "Property": "Select Metric"
-                      }
-                    },
-                    "index": 0,
-                    "length": 2
-                  }
-                ]
-              }
-            }
-          },
-          "79132f3095020ab0e601": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "675f65ca67ce0660e60a",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "f",
-                        "Entity": "Fact_Attrition",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "f"
-                                    }
-                                  },
-                                  "Property": "Attrition"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Yes'"
-                                  }
-                                }
-                              ]
-                            ]
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
                           }
                         }
                       }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Fact_Attrition"
-                        }
-                      },
-                      "Property": "Attrition"
                     }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "f5d36e42d67aa8c6b8d5",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Fact_Attrition"
-                        }
-                      },
-                      "Property": "YearsAtCompany"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "b80a89673c0e0404aa0d",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Fact_Attrition"
-                            }
-                          },
-                          "Property": "EmployeeNumber"
-                        }
-                      },
-                      "Function": 5
-                    }
-                  },
-                  "howCreated": 0
+                  ]
                 }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "clusteredColumnChart",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Fact_Attrition"
-                            }
-                          },
-                          "Property": "EmployeeNumber"
-                        }
-                      },
-                      "Function": 5
-                    }
-                  }
-                }
-              ],
+              },
               "activeProjections": {
-                "Category": [
+                "Values": [
                   {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Fact_Attrition"
+                          "Entity": "Dim_Demographics"
                         }
                       },
-                      "Property": "YearsAtCompany"
+                      "Property": "Gender"
                     }
                   }
                 ]
               }
             }
           },
-          "107d0b620974e0551014": {
+          "bdd5a2f5e425150468e6": {
             "singleVisual": {
               "visualType": "shape",
               "objects": {}
             }
           },
-          "3ffa306428880bd027a1": {
+          "c68074b4700566321cc5": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {}
             }
           },
-          "0b18466da6b72e6c7203": {
+          "d18b94b96b0cccb30d58": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "b7d19889d237bc604d36",
-                  "type": "Categorical",
+                  "name": "6b1ef0c7e8b3d2474c5c",
+                  "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Dim_Role"
+                          "Entity": "Fact_Attrition"
                         }
                       },
-                      "Property": "Department"
+                      "Property": "WorkLifeBalance"
                     }
                   },
                   "howCreated": 0
@@ -786,120 +1049,10 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Dim_Role"
+                          "Entity": "Fact_Attrition"
                         }
                       },
-                      "Property": "Department"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "bd80f5f6a1d9ddc7b6d9": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "149e57c173d60c092ed4",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Demographics"
-                        }
-                      },
-                      "Property": "Gender"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Demographics"
-                        }
-                      },
-                      "Property": "Gender"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "5931b40ac8992b2a8085": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "8215a1305b0b8807c406",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Demographics"
-                        }
-                      },
-                      "Property": "MaritalStatus"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Demographics"
-                        }
-                      },
-                      "Property": "MaritalStatus"
+                      "Property": "WorkLifeBalance"
                     }
                   }
                 ]
@@ -910,7 +1063,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "1a289b37257be7b0e6d8",
+                  "name": "f0c1cc5069a9c4256b76",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -959,128 +1112,6 @@
                   }
                 ]
               }
-            }
-          },
-          "873e05a0163ed779abc4": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "0a6709ad91b306653a84",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Role"
-                        }
-                      },
-                      "Property": "JobRole"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Role"
-                        }
-                      },
-                      "Property": "JobRole"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "d18b94b96b0cccb30d58": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "9d0a9d41d0d8c773175b",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Fact_Attrition"
-                        }
-                      },
-                      "Property": "WorkLifeBalance"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Fact_Attrition"
-                        }
-                      },
-                      "Property": "WorkLifeBalance"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "c68074b4700566321cc5": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "2f25f014679e2a5463dc": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
             }
           }
         },

@@ -1,2 +1,12 @@
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.env
+venv/
+env/
+.pbi/
+*.pbit
+Thumbs.db
+.DS_Store
