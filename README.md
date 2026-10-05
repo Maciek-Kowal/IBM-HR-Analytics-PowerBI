@@ -1,4 +1,4 @@
-# HR Attrition Risk Analytics: From Historical Data to Predictive Retention
+# HR Attrition Risk Analytics: End-to-End Data Pipeline & Predictive Modeling
 
 ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -6,51 +6,57 @@
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 
 ## Executive Summary
-This project provides a complete analytics ecosystem designed to transition HR departments from reactive reporting to proactive retention. By integrating descriptive analytics (Power BI) with a predictive machine learning model (Python), the solution identifies which employees are most likely to leave and provides actionable data to mitigate turnover costs.
+This project demonstrates a complete, automated analytics pipeline designed to transition HR operations from reactive historical reporting to proactive retention. It integrates Data Engineering (Power Query, Star Schema), Business Intelligence (Advanced DAX, Power BI), and a Predictive Machine Learning ETL pipeline (Python, scikit-learn, Pandas) to identify high-risk employees and mitigate financial turnover losses.
 
 ### Quick Links
 - [View Executive Presentation (PDF)](docs/HR_Attrition_Risk_Analytics_Presentation.pdf)
 
+## System Architecture & Data Flow
+To ensure scalability, the project was designed as a cohesive data ecosystem rather than isolated files:
+1. Data Extraction & Transformation: Flat raw datasets are ingested into Power BI via Power Query, normalized, and modeled into a Star Schema.
+2. Diagnostic Layer: Power BI leverages DAX to visualize historical trends and calculate current financial exposures.
+3. Predictive ETL Pipeline: A decoupled Python/Pandas automated pipeline ingests raw data, performs feature engineering, runs the Random Forest classification, and outputs a Data Warehouse-ready dataset specifically filtered for business action.
+
 ## Project Walkthrough
 
-### 1. Diagnostic Analytics: Understanding the Cost of Turnover
-Before predicting the future, we must quantify the current state. The Power BI dashboard analyzes historical data to identify where the company is losing money.
-- Identified a 16.12% historical attrition rate generating $6.81M in estimated turnover costs.
-- Highlighted that Sales Representatives generate the highest attrition costs and pinpointed a critical tenure spike at the 1-year mark.
+### 1. Data Engineering & Diagnostic Analytics (Power BI)
+The foundation of the visual reporting relies on robust data modeling and automated calculation engines, shifting away from flat-file processing.
+- Power Query ETL: Extracted and cleaned the raw flat dataset, executing structural transformations to normalize the data.
+- Dimensional Modeling: Designed a highly optimized Star Schema, separating quantitative metrics into `Fact_Attrition` and descriptive attributes into corresponding dimension tables (`Dim_Employee`, `Dim_Department`, `Dim_Role`).
+- Advanced DAX Computations: Engineered complex measures utilizing `VAR`, `CALCULATE`, and context transition mechanisms to dynamically compute the $6.81M turnover cost and YoY retention metrics.
 
 ![Power BI Overview](docs/Images/Dashboard1.png)
 
 *Interactive Tooltip showcasing granular data on hover:*
 ![Power BI Tooltip](docs/Images/Dashboard2.png)
 
-### 2. Predictive Analytics: The Machine Learning Engine
-To shift from reporting to prevention, a predictive model was developed using Python and scikit-learn. 
-- Model: Random Forest Classifier.
-- Handling Imbalance: Applied SMOTE to correctly identify the minority class (leavers).
-- Business Calibration: The decision threshold was custom-tuned to 0.30 to prioritize recall. This ensures the model catches 68% of all potential leavers, favoring early intervention over strict precision.
+### 2. Predictive ML & Automated Pandas ETL Pipeline (Python)
+Moving beyond basic data cleansing, the predictive component operates as an automated Python-based ETL pipeline tailored for machine learning deployment.
+- Feature Engineering & Preprocessing: Utilized Pandas and NumPy to encode categorical variables, scale numerical features, and handle missing data structures.
+- Predictive Engine: Trained a Random Forest Classifier. Addressed the heavy class imbalance using SMOTE (Synthetic Minority Over-sampling Technique) on the training set.
+- Business Calibration: Tuned the model's decision threshold to 0.30 to maximize recall, ensuring the capture of 68% of all potential leavers over strict precision.
 
 ![Python Model Code](docs/Images/Python.png)
 
-### 3. Actionable Output: The HR Retention List
-Managers do not need complex probability matrices; they need a clear list of targets. The final output of the Python pipeline is a clean, automated report filtered for high-risk profiles.
-- Combines predictive risk scores with original demographic data.
-- Filters for employees with a >30% flight risk.
-- Strips away technical modeling columns to deliver a ready-to-use list for HR outreach.
+### 3. Actionable Output: Automated HR Retention Pipeline
+The final stage of the Python pipeline transforms raw ML probabilities into a business-ready deliverable.
+- Automated Data Transformation: A Pandas script automatically joins the unencoded demographic data with the model's predicted probability scores.
+- Output Generation: Filters profiles exceeding the >30% flight risk threshold and exports an aggregated, Data Warehouse-ready Excel report. This eliminates the need for manual data manipulation by the HR department.
 
 ![Clean HR Report](docs/Images/Excel.png)
 
 ### 4. Executive Presentation
-All technical findings and business recommendations were synthesized into a concise executive summary presentation for stakeholders.
+All technical pipelines, DAX findings, and business recommendations were synthesized into a concise executive summary presentation for non-technical stakeholders.
 
 ![Executive Presentation](docs/Images/Powerpoint.png)
 
 ## Repository Structure
-- /data: Contains the original dataset and the final exported High-Risk Report.
-- /notebooks: Contains the documented Jupyter Notebook (HR_Attrition_Predictive_Model.ipynb) with the full ML pipeline.
-- /docs: Contains the Executive Summary PDF and project screenshots.
-- / (Root): Power BI project files (.pbip, .Report, .SemanticModel).
+- /data: Contains the raw data sources and the final automated export (Clean_HR_Risk_Report.xlsx).
+- /notebooks: Contains the heavily documented Jupyter Notebook (HR_Attrition_Predictive_Model.ipynb) housing the Pandas ETL and ML pipeline.
+- /docs: Contains the Executive Summary PDF and project architecture screenshots.
+- / (Root): Power BI project files (.pbip, .Report, .SemanticModel) containing the Star Schema and DAX scripts.
 
-## How to Use
+## Deployment & Execution
 1. Clone the repository.
-2. To view the descriptive analytics, open HR_Attrition_Dashboard.pbip in Power BI Desktop.
-3. To run the predictive pipeline, open the Jupyter Notebook in /notebooks, install the required libraries (pandas, scikit-learn, imblearn), and execute the cells to generate a fresh Clean_HR_Risk_Report.xlsx in the /data directory.
+2. Business Intelligence: Open HR_Attrition_Dashboard.pbip in Power BI Desktop to interact with the DAX measures and Star Schema model.
+3. Predictive Pipeline
