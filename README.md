@@ -23,7 +23,7 @@ To ensure scalability, the project was designed as a cohesive data ecosystem rat
 The foundation of the visual reporting relies on robust data modeling and automated calculation engines, shifting away from flat-file processing.
 - Power Query ETL: Extracted and cleaned the raw flat dataset, executing structural transformations to normalize the data.
 - Dimensional Modeling: Designed a highly optimized Star Schema, separating quantitative metrics into `Fact_Attrition` and descriptive attributes into corresponding dimension tables (`Dim_Demographics`, `Dim_Role`). Additionally, structured the model using enterprise best practices by isolating DAX computations into a dedicated `_Measures` table and utilizing Field Parameters (`Select Metric`) for dynamic visual interactions.
--  Advanced DAX Computations: Engineered dynamic measures utilizing `VAR`, `CALCULATE`, and advanced filter contexts to compute the $6.81M turnover cost, overall Attrition Rate, and role-specific risk exposures without relying on standard time-series data.
+- Advanced DAX Computations: Engineered dynamic measures utilizing `CALCULATE`, `DIVIDE`, and `DISTINCTCOUNT` for precise attrition tracking. Leveraged iterator functions (`SUMX` combined with `FILTER`) to compute the $6.81M turnover cost row-by-row based on employee monthly income. Implemented Field Parameters to enable dynamic metric switching across visual reports.
 
 ![Power BI Overview](docs/Images/Dashboard1.png)
 
